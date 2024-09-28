@@ -1,7 +1,7 @@
 // higher order function 
 // const asyncHander = (fn)=>{()=>{}} or = (fn) => () => {}
 const asyncHandler = (requestHandler) => {
-  (req, res, next) => {
+  return (req, res, next) => {
     Promise.resolve(requestHandler(req, res, next)).catch((err)=>next(err))
   }
 }
